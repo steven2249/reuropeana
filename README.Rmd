@@ -15,6 +15,10 @@ knitr::opts_chunk$set(
 * [Europeana](http://europeana.eu/)
 * [API docs](http://labs.europeana.eu/api/)
 
+## Authentication
+
+An API key is required. Get one at [their registration page](http://labs.europeana.eu/api/registration/). Then use that in the functions within this package. See examples.
+
 ## Quick start
 
 ### Installation
