@@ -34,10 +34,38 @@ devtools::install_github("ropensci/reuropeana")
 library('reuropeana')
 ```
 
-### Search
+### Search Europena providers
 
-```{r eval=FALSE}
-'adfadf'
+```{r}
+out <- eu_providers(limit=3)
+out$meta
+```
+
+```{r}
+out$items[[1]]
+```
+
+### Search Europena metadata
+
+Search for _Leonardo da Vinci_ in the _who_ field.
+
+```{r}
+out <- eu_search(query='who:"Leonardo da Vinci"')
+sapply(out$items, "[[", "title")
+```
+
+Range search, from _a_ to _b_
+
+```{r}
+out <- eu_search(query='[a TO b]', limit=3)
+sapply(out$items, "[[", "title")
+```
+
+Time range search, from _1525_ to _1527_
+
+```{r}
+out <- eu_search(query='YEAR:[1525 TO 1527]', limit=10)
+sapply(out$items, "[[", "title")
 ```
 
 ## Meta
