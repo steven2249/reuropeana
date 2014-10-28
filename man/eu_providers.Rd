@@ -24,7 +24,7 @@ back of course, for example, there is no data for country_code='US'.}
 
 \item{key}{Your Europeana API key.}
 
-\item{callopts}{Curl options passed on to httr::GET, see examples}
+\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }
 \description{
 Search Europeana data providers.
