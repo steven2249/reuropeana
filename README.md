@@ -3,6 +3,8 @@ reuropeana
 
 
 
+Linux: [![Build Status](https://api.travis-ci.org/ropensci/reuropeana.png)](https://travis-ci.org/ropensci/reuropeana)
+
 `reuropeana`: R client for Europeana
 
 * [Europeana](http://europeana.eu/)
@@ -45,19 +47,19 @@ out$meta
 #> [1] TRUE
 #> 
 #> $statsStartTime
-#> [1] 1.414539e+12
+#> [1] 1.424105e+12
 #> 
 #> $statsDuration
-#> [1] 10
+#> [1] 22
 #> 
 #> $requestNumber
-#> [1] 39
+#> [1] 999
 #> 
 #> $itemsCount
 #> [1] 3
 #> 
 #> $totalResults
-#> [1] 201
+#> [1] 206
 ```
 
 
@@ -118,16 +120,16 @@ sapply(out$items, "[[", "title")
 #> [1] "Ritratto di Leonardo da Vinci"
 #> 
 #> [[7]]
-#> [1] "San Girolamo"
+#> [1] "Leonardo da Vinci. Stipple engraving by J. Posselwhite."
 #> 
 #> [[8]]
-#> [1] "San Girolamo"
+#> [1] "Leonardo da Vinci. Line engraving by C. Warren, 1824."
 #> 
 #> [[9]]
-#> [1] "Bildnis einer alten Frau im Profil"
+#> [1] "Inventions: various illustrations taken from mediaeval or la"
 #> 
 #> [[10]]
-#> [1] "Bildnis eines alten Mannes im Profil"
+#> [1] "Engineering: a hoist in use at an arsenal. Engraving by F. B"
 ```
 
 Range search, from _a_ to _b_

@@ -10,6 +10,8 @@ knitr::opts_chunk$set(
 )
 ```
 
+Linux: [![Build Status](https://api.travis-ci.org/ropensci/reuropeana.png)](https://travis-ci.org/ropensci/reuropeana)
+
 `reuropeana`: R client for Europeana
 
 * [Europeana](http://europeana.eu/)
