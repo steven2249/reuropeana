@@ -1,5 +1,3 @@
-#' Check response from web, and catch and give errors to the user.
-#' @keywords internal
 check_response <- function(x){
   if(!x$status_code == 200){
     stnames <- names(content(x))
@@ -21,4 +19,4 @@ eu_GET <- function(url, args, ...){
 
 eubase <- function() 'http://europeana.eu/api/v2/'
 
-euc <- function (l) Filter(Negate(is.null), l)
+euc <- function(l) Filter(Negate(is.null), l)

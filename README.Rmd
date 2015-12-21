@@ -10,7 +10,9 @@ knitr::opts_chunk$set(
 )
 ```
 
-Linux: [![Build Status](https://api.travis-ci.org/ropensci/reuropeana.png)](https://travis-ci.org/ropensci/reuropeana)
+[![Build Status](https://api.travis-ci.org/ropensci/reuropeana.png)](https://travis-ci.org/ropensci/reuropeana)
+[![codecov.io](https://codecov.io/github/ropensci/reuropeana/coverage.svg?branch=master)](https://codecov.io/github/ropensci/reuropeana?branch=master)
+[![rstudio mirror downloads](http://cranlogs.r-pkg.org/badges/reuropeana)](https://github.com/metacran/cranlogs.app)
 
 `reuropeana`: R client for Europeana
 
@@ -21,9 +23,7 @@ Linux: [![Build Status](https://api.travis-ci.org/ropensci/reuropeana.png)](http
 
 An API key is required. Get one at [their registration page](http://labs.europeana.eu/api/registration/). Then use that in the functions within this package. See examples.
 
-## Quick start
-
-### Installation
+## Installation
 
 Install `reuropeana` from GitHub:
 
@@ -36,7 +36,7 @@ devtools::install_github("ropensci/reuropeana")
 library('reuropeana')
 ```
 
-### Search Europena providers
+## Search Europena providers
 
 ```{r}
 out <- eu_providers(limit=3)
@@ -47,7 +47,7 @@ out$meta
 out$items[[1]]
 ```
 
-### Search Europena metadata
+## Search Europena metadata
 
 Search for _Leonardo da Vinci_ in the _who_ field.
 
@@ -76,4 +76,4 @@ sapply(out$items, "[[", "title")
 * License: MIT
 * Get citation information for `reuropeana` in R doing `citation(package = 'reuropeana')`
 
-[![ropensci](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)
+[![ro_footer](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)

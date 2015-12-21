@@ -1,8 +1,6 @@
 #' Search the Europeana database.
 #'
-#' @import httr jsonlite
 #' @export
-#'
 #' @param query (character) Query string
 #' @param profile (character) Profile parameter controls the format and richness of the response.
 #' See Details.
@@ -75,9 +73,14 @@
 #' }
 
 eu_search <- function(query, profile = NULL, qf = NULL, limit = 10, start = NULL,
-  key = getOption("eu_key"), ...)
-{
-  args <- euc(list(query=query, profile=profile, qf=qf, rows=limit, start=start, wskey=key))
+  key = getOption("eu_key"), ...) {
+
+  args <- euc(list(query = query, profile = profile, qf = qf,
+                   rows = limit, start = start, wskey = key))
   out <- eu_GET(paste0(eubase(), 'search.json'), args, ...)
-  if('error' %in% names(out)){ NA } else { out }
+  if ('error' %in% names(out)) {
+    NA
+  } else {
+    out
+  }
 }

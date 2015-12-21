@@ -3,7 +3,9 @@ reuropeana
 
 
 
-Linux: [![Build Status](https://api.travis-ci.org/ropensci/reuropeana.png)](https://travis-ci.org/ropensci/reuropeana)
+[![Build Status](https://api.travis-ci.org/ropensci/reuropeana.png)](https://travis-ci.org/ropensci/reuropeana)
+[![codecov.io](https://codecov.io/github/ropensci/reuropeana/coverage.svg?branch=master)](https://codecov.io/github/ropensci/reuropeana?branch=master)
+[![rstudio mirror downloads](http://cranlogs.r-pkg.org/badges/reuropeana)](https://github.com/metacran/cranlogs.app)
 
 `reuropeana`: R client for Europeana
 
@@ -14,9 +16,7 @@ Linux: [![Build Status](https://api.travis-ci.org/ropensci/reuropeana.png)](http
 
 An API key is required. Get one at [their registration page](http://labs.europeana.eu/api/registration/). Then use that in the functions within this package. See examples.
 
-## Quick start
-
-### Installation
+## Installation
 
 Install `reuropeana` from GitHub:
 
@@ -31,7 +31,7 @@ devtools::install_github("ropensci/reuropeana")
 library('reuropeana')
 ```
 
-### Search Europena providers
+## Search Europena providers
 
 
 ```r
@@ -41,16 +41,16 @@ out$meta
 #> [1] "oHMKBqoeR"
 #> 
 #> $action
-#> [1] "/v2/providers.json"
+#> [1] "--deprecated--"
 #> 
 #> $success
 #> [1] TRUE
 #> 
 #> $statsStartTime
-#> [1] 1.424105e+12
+#> [1] 1.450713e+12
 #> 
 #> $statsDuration
-#> [1] 22
+#> [1] 97
 #> 
 #> $requestNumber
 #> [1] 999
@@ -59,41 +59,44 @@ out$meta
 #> [1] 3
 #> 
 #> $totalResults
-#> [1] 206
+#> [1] 114
 ```
 
 
 ```r
 out$items[[1]]
 #> $identifier
-#> [1] "002"
+#> [1] "001"
 #> 
 #> $country
-#> [1] "NO"
+#> [1] "PT"
 #> 
 #> $name
-#> [1] "Norsk Lydinstitutt"
+#> [1] "Calouste Gulbenkian Foundation / Fundação Calouste Gulbenkian"
 #> 
 #> $acronym
-#> [1] "NL"
+#> [1] "CGF"
 #> 
 #> $altname
-#> [1] "Norwegian Institute of Recorded Sound"
+#> [1] "Calouste Gulbenkian Foundation"
 #> 
 #> $scope
-#> [1] "Other/None"
+#> [1] "Thematic"
+#> 
+#> $domain
+#> [1] "Museum/Gallery"
 #> 
 #> $geolevel
-#> [1] "National"
+#> [1] "Regional"
 #> 
 #> $role
 #> [1] "Data Aggregator"
 #> 
 #> $website
-#> [1] "www.recordedsound.no/"
+#> [1] "www.gulbenkian.pt"
 ```
 
-### Search Europena metadata
+## Search Europena metadata
 
 Search for _Leonardo da Vinci_ in the _who_ field.
 
@@ -102,34 +105,34 @@ Search for _Leonardo da Vinci_ in the _who_ field.
 out <- eu_search(query='who:"Leonardo da Vinci"')
 sapply(out$items, "[[", "title")
 #> [[1]]
-#> [1] "Des vortreflichen Florentinischen Mahlers Lionardo da Vinci höchst-nuetzlicher Tractat von der Mahlerey"
+#> [1] "Fruits of the Spirit from BL Arundel 44, f. 83v"
 #> 
 #> [[2]]
-#> [1] "Annunciazione"
+#> [1] "[La ]Società Leonardo da Vinci, riunita in assemblea generale straordinaria l'11 gennaio 1915, votava all'unanimita il seguente ordine del giorno ... : Firenze, marzo 1915"
 #> 
 #> [[3]]
-#> [1] "Adorazione dei Magi"
+#> [1] "Leonardo da Vinci: Della natura, peso e moto delle acque: il Codice Leicester"
 #> 
 #> [[4]]
-#> [1] "Battaglia di Anghiari"
+#> [1] "Heilig Aanschijn"
 #> 
 #> [[5]]
-#> [1] "Ritratto di donna"
+#> [1] "Model of boring machine from design of Leonardo da Vinci"
 #> 
 #> [[6]]
-#> [1] "Ritratto di Leonardo da Vinci"
+#> [1] "Wise and Fooling Virgins from BL Arundel 44, f. 57v"
 #> 
 #> [[7]]
-#> [1] "Leonardo da Vinci. Stipple engraving by J. Posselwhite."
+#> [1] "Model of screw-cutting machine from design of Leonardo da Vi"
 #> 
 #> [[8]]
-#> [1] "Leonardo da Vinci. Line engraving by C. Warren, 1824."
+#> [1] "Temple of Wisdom from BL Arundel 44, f. 114v"
 #> 
 #> [[9]]
-#> [1] "Inventions: various illustrations taken from mediaeval or la"
+#> [1] "Trattato della pittura di Lionardo da Vinci nuovamente dato in luce, colla vita dell'istesso autore, scritta da Rafaelle Du Fresne. Si sono giunti i tre libri della Pittura, ed il trattato della Statua di Leon Battista Alberti, colla vita del medesimo"
 #> 
 #> [[10]]
-#> [1] "Engineering: a hoist in use at an arsenal. Engraving by F. B"
+#> [1] "Leonardo: Mona Lisa (XVI. sz.)"
 ```
 
 Range search, from _a_ to _b_
@@ -139,13 +142,13 @@ Range search, from _a_ to _b_
 out <- eu_search(query='[a TO b]', limit=3)
 sapply(out$items, "[[", "title")
 #> [[1]]
-#> [1] "Context information: Rijksfotoarchief: Collectie Heidemaatschappij, 1910-1970 - positieven >> Rijksfotoarchief: Collectie Heidemaatschappij, positieven"
+#> [1] "Anicius Manlius Severinus Boetius , De consolatione Philisophiae. [Paris, BnF, MSS Latin 6405]"
 #> 
 #> [[2]]
-#> [1] "Context information: Rijksfotoarchief: Collectie Heidemaatschappij, 1910-1970 - positieven >> Rijksfotoarchief: Collectie Heidemaatschappij, positieven"
+#> [1] "Vaticinia Sibyllae . – Vaticinia Merlini . – Gaufridus de Monemuta [Geofroy de Monmouth], Historia regum Britanniae , c. 111-117 . – Pseudo-Joachim Florensis , Expositio super Sibillis et Merlino (ff. 9v-25) ; Expositio brevior Sibyllae Erythrae et Merlini (ff. 28-38v); Prophéties sur le royaume de Sicile (ff. 40-40v) . – Joachim Florensis ? , Super numero bestiae Apocalypseos . – Rainerius de Pontio ? , De decem plagis . – Versus de Antechristo . – Sibylla Delphica . – Gebeno Eberbacensis , Speculum futurorum temporum . – Petrus de Alliaco , Invectiva Ezechielis prophete contra pseudo pastores. [Paris, BnF, MSS Latin 3319]"
 #> 
 #> [[3]]
-#> [1] "Context information: Rijksfotoarchief: Collectie Heidemaatschappij, 1910-1970 - positieven >> Rijksfotoarchief: Collectie Heidemaatschappij, positieven"
+#> [1] "Caius Sollius Apollinaris , Epistolae ; Carmina . – Decimus Magnus Ausonius , De XII Caesaribus per Suetonium Tranquillum scriptis (fragment) . Epistola Deidamiae ad Achillem. [Paris, BnF, MSS Latin 2782]"
 ```
 
 Time range search, from _1525_ to _1527_
@@ -155,34 +158,56 @@ Time range search, from _1525_ to _1527_
 out <- eu_search(query='YEAR:[1525 TO 1527]', limit=10)
 sapply(out$items, "[[", "title")
 #> [[1]]
-#> [1] "busto ritratto d'uomo"
+#> [[1]][[1]]
+#> [1] "Postille maiores cum questionibus"
+#> 
 #> 
 #> [[2]]
-#> [1] "figura maschile distesa"
+#> [[2]][[1]]
+#> [1] "Melanchthon, Philipp"
+#> 
 #> 
 #> [[3]]
-#> [1] "adorazione dei pastori"
+#> [[3]][[1]]
+#> [1] "Erasmus von Rotterdam"
+#> 
 #> 
 #> [[4]]
-#> [1] "busto ritratto d'uomo"
+#> [[4]][[1]]
+#> [1] "Erasmus von Rotterdam"
+#> 
 #> 
 #> [[5]]
-#> [1] "busto ritratto d'uomo"
+#> [[5]][[1]]
+#> [1] "Johann, Kurfürst von Sachsen"
+#> 
 #> 
 #> [[6]]
-#> [1] "Sposalizio di Santa Caterina"
+#> [[6]][[1]]
+#> [1] "Leyden, Lucas van"
+#> 
 #> 
 #> [[7]]
-#> [1] "busto di Andrea Palladio"
+#> [[7]][[1]]
+#> [1] "Romance of Don Virgilios glossed with other two romances on love"
+#> 
+#> [[7]][[2]]
+#> [1] "Romance de don Virgilios glosado con otros dos romances del amor"
+#> 
 #> 
 #> [[8]]
-#> [1] "motivi decorativi vegetali stilizzati"
+#> [[8]][[1]]
+#> [1] "Tweede Wereldoorlog - Nederland. Overzicht van een tentoonstelling in huize Kneuterdijk in Den Haag. De opening wordt op 15 oktober 1941 verricht door de Rijkscommissaris Dr. A. Seyss Inquart."
+#> 
 #> 
 #> [[9]]
-#> [1] "busto di Girolamo Grimani"
+#> [[9]][[1]]
+#> [1] "Tweede Wereldoorlog - Nederland. In een grote vergadering in de Dierentuin in Den Haag spreekt Generaalarbeidsführer, Dr. W. Decker het aanwezige publiek toe. Het thema van de vergadering is 'het nut van de Rijksarbeidsdienst'.Op de voorgrond: militairen in uniform met een schop. Foto : 11 oktober 1941."
+#> 
 #> 
 #> [[10]]
-#> [1] "cavallo"
+#> [[10]][[1]]
+#> [1] "Tweede Wereldoorlog - Nederland. Op 11 oktober wordt in Rotterdam een grote RAD (?)-tentoonstelling geopend in aanwezigheid van Rijkscommissaris Dr. A. Seyss Inquart (links) en Generaalcommissaris Schmidt. 1941."
 ```
 
 ## Meta
@@ -191,4 +216,4 @@ sapply(out$items, "[[", "title")
 * License: MIT
 * Get citation information for `reuropeana` in R doing `citation(package = 'reuropeana')`
 
-[![ropensci](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)
+[![ro_footer](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)

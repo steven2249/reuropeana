@@ -1,7 +1,6 @@
 #' Search Europeana data providers.
 #'
 #' @export
-#'
 #' @param providerid Provider ID
 #' @param datasetid Dataset ID
 #' @param datasets (logical) Whether to return datasets or not with provider information. Ignored
