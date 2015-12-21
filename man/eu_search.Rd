@@ -4,8 +4,8 @@
 \alias{eu_search}
 \title{Search the Europeana database.}
 \usage{
-eu_search(query, profile = NULL, qf = NULL, limit = 10, start = NULL,
-  key = getOption("eu_key"), ...)
+eu_search(query, profile = NULL, qf = NULL, limit = 10, start = 1,
+  sort = NULL, key = getOption("eu_key"), ...)
 }
 \arguments{
 \item{query}{(character) Query string}
@@ -15,10 +15,12 @@ See Details.}
 
 \item{qf}{(character) Facet filtering query. This parameter can be defined more than once.}
 
-\item{limit}{(numeric) The number of records to return. Maximum is 100. Defaults to 10.}
+\item{limit}{(numeric) The number of records to return. Maximum is 100. Default: 10}
 
 \item{start}{(numeric) The item in the search results to start with. The first item is 1.
-Defaults to 1.}
+Default: 1}
+
+\item{sort}{(character) Sort by a field, e.g., \code{timestamp_update+desc}}
 
 \item{key}{(character) API key for Europeana}
 

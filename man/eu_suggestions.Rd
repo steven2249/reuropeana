@@ -4,11 +4,15 @@
 \alias{eu_suggestions}
 \title{Get Europeana records}
 \usage{
-eu_suggestions(query, limit = 10, start = NULL, key = getOption("eu_key"),
+eu_suggestions(query, limit = 10, start = 1, key = getOption("eu_key"),
   ...)
 }
 \arguments{
 \item{query}{(character) Query string}
+
+\item{limit}{(numeric) Size of the result set to fetch. Default: 10}
+
+\item{start}{(numeric) Record number to start with. Default: 1}
 
 \item{key}{(character) API key for Europeana}
 

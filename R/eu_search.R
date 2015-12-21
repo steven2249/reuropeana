@@ -5,9 +5,10 @@
 #' @param profile (character) Profile parameter controls the format and richness of the response.
 #' See Details.
 #' @param qf (character) Facet filtering query. This parameter can be defined more than once.
-#' @param limit (numeric) The number of records to return. Maximum is 100. Defaults to 10.
+#' @param limit (numeric) The number of records to return. Maximum is 100. Default: 10
 #' @param start (numeric) The item in the search results to start with. The first item is 1.
-#' Defaults to 1.
+#' Default: 1
+#' @param sort (character) Sort by a field, e.g., \code{timestamp_update+desc}
 #' @param key (character) API key for Europeana
 #' @param ... Curl options passed on to \code{\link[httr]{GET}}
 #' @details
@@ -72,12 +73,12 @@
 #' eu_search(query='Paris', qf='UGC:true')
 #' }
 
-eu_search <- function(query, profile = NULL, qf = NULL, limit = 10, start = NULL,
-  key = getOption("eu_key"), ...) {
+eu_search <- function(query, profile = NULL, qf = NULL, limit = 10, start = 1,
+  sort = NULL, key = getOption("eu_key"), ...) {
 
   args <- euc(list(query = query, profile = profile, qf = qf,
-                   rows = limit, start = start, wskey = key))
-  out <- eu_GET(paste0(eubase(), 'search.json'), args, ...)
+                   sort = sort, rows = limit, start = start, wskey = key))
+  out <- eu_GET(file.path(eubase(), 'search.json'), args, ...)
   if ('error' %in% names(out)) {
     NA
   } else {

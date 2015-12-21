@@ -5,8 +5,8 @@
 #' @param datasetid Dataset ID
 #' @param datasets (logical) Whether to return datasets or not with provider information. Ignored
 #' when providerid is NULL (the default for that parameter).
-#' @param start (numeric) Record number to start with.
-#' @param limit	(numeric) Size of the result set to fetch.
+#' @param limit	(numeric) Size of the result set to fetch. Default: 10
+#' @param start (numeric) Record number to start with. Default: 1
 #' @param country_code (character) Two-letter ISO 3166-1 country code. Not all countries give data
 #' back of course, for example, there is no data for country_code='US'.
 #' @param key Your Europeana API key.
@@ -33,8 +33,8 @@
 #' eu_providers(limit=1, config=verbose())
 #' }
 
-eu_providers <- function(providerid = NULL, datasetid = NULL, datasets = FALSE, start = NULL,
-  limit = 10, country_code = NULL, key = getOption("eu_key"), ...) {
+eu_providers <- function(providerid = NULL, datasetid = NULL, datasets = FALSE,
+  limit = 10, start = 1, country_code = NULL, key = getOption("eu_key"), ...) {
 
   stopifnot(if (!is.null(providerid)) is.null(datasetid) else TRUE)
   stopifnot(if (!is.null(datasetid)) is.null(providerid) else TRUE)

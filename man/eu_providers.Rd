@@ -5,8 +5,8 @@
 \title{Search Europeana data providers.}
 \usage{
 eu_providers(providerid = NULL, datasetid = NULL, datasets = FALSE,
-  start = NULL, limit = 10, country_code = NULL,
-  key = getOption("eu_key"), ...)
+  limit = 10, start = 1, country_code = NULL, key = getOption("eu_key"),
+  ...)
 }
 \arguments{
 \item{providerid}{Provider ID}
@@ -16,9 +16,9 @@ eu_providers(providerid = NULL, datasetid = NULL, datasets = FALSE,
 \item{datasets}{(logical) Whether to return datasets or not with provider information. Ignored
 when providerid is NULL (the default for that parameter).}
 
-\item{start}{(numeric) Record number to start with.}
+\item{limit}{(numeric) Size of the result set to fetch. Default: 10}
 
-\item{limit}{(numeric) Size of the result set to fetch.}
+\item{start}{(numeric) Record number to start with. Default: 1}
 
 \item{country_code}{(character) Two-letter ISO 3166-1 country code. Not all countries give data
 back of course, for example, there is no data for country_code='US'.}
