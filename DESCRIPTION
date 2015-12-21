@@ -3,7 +3,7 @@ Type: Package
 Title: Interface to Europeana APIs
 Description: Interact with Europeana web services from R, including search,
     etc, etc.
-Version: 0.0.2.9000
+Version: 0.0.3.9000
 Date: 2015-12-21
 Authors@R: person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com")

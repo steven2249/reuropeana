@@ -10,13 +10,21 @@ check_response <- function(x){
 }
 
 eu_GET <- function(url, args, ...){
-  tt <- GET(url, query=args, ...)
+  tt <- GET(url, query = args, ...)
   check_response(tt)
   stopifnot(tt$headers$`content-type` == "application/json;charset=UTF-8")
   res <- content(tt, as = "text")
   jsonlite::fromJSON(res, FALSE)
 }
 
-eubase <- function() 'http://europeana.eu/api/v2/'
+eubase <- function() 'http://europeana.eu/api/v2'
 
 euc <- function(l) Filter(Negate(is.null), l)
+
+is_error <- function(x) {
+  if (is(x, "error")) {
+    NULL
+  } else {
+    x
+  }
+}

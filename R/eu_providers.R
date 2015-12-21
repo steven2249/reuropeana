@@ -34,22 +34,22 @@
 #' }
 
 eu_providers <- function(providerid = NULL, datasetid = NULL, datasets = FALSE, start = NULL,
-  limit = 10, country_code = NULL, key = getOption("eu_key"), ...)
-{
-  stopifnot(if(!is.null(providerid)) is.null(datasetid) else TRUE)
-  stopifnot(if(!is.null(datasetid)) is.null(providerid) else TRUE)
+  limit = 10, country_code = NULL, key = getOption("eu_key"), ...) {
 
-  url <- paste0(eubase(), 'providers.json')
-  if(!is.null(providerid)){
-    if(datasets){
-      url <- sprintf('%sprovider/%s/datasets.json', eubase(), providerid)
+  stopifnot(if (!is.null(providerid)) is.null(datasetid) else TRUE)
+  stopifnot(if (!is.null(datasetid)) is.null(providerid) else TRUE)
+
+  url <- paste0(eubase(), '/providers.json')
+  if (!is.null(providerid)) {
+    if (datasets) {
+      url <- sprintf('%s/provider/%s/datasets.json', eubase(), providerid)
     } else {
-      url <- sprintf('%sprovider/%s.json', eubase(), providerid)
+      url <- sprintf('%s/provider/%s.json', eubase(), providerid)
     }
   }
-  if(!is.null(datasetid)) url <- sprintf('%s/dataset/%s.json', eubase(), datasetid)
+  if (!is.null(datasetid)) url <- sprintf('%s/dataset/%s.json', eubase(), datasetid)
 
-  args <- euc(list(wskey=key, countryCode=country_code, offset=start, pagesize=limit))
+  args <- euc(list(wskey = key, countryCode = country_code, offset = start, pagesize = limit))
   out <- eu_GET(url, args, ...)
-  list(meta=out[ !names(out) %in% "items" ], items=out$items)
+  list(meta = out[ !names(out) %in% "items" ], items = out$items)
 }
