@@ -6,7 +6,7 @@
 \alias{reuropeana-package}
 \title{R Client for Europeana.}
 \description{
-R Client for Europeana
+R Client for Europeana.
 }
 \author{
 Scott Chamberlain

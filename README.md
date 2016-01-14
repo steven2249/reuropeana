@@ -5,7 +5,6 @@ reuropeana
 
 [![Build Status](https://api.travis-ci.org/ropensci/reuropeana.png)](https://travis-ci.org/ropensci/reuropeana)
 [![codecov.io](https://codecov.io/github/ropensci/reuropeana/coverage.svg?branch=master)](https://codecov.io/github/ropensci/reuropeana?branch=master)
-[![rstudio mirror downloads](http://cranlogs.r-pkg.org/badges/reuropeana)](https://github.com/metacran/cranlogs.app)
 
 `reuropeana`: R client for Europeana
 
@@ -47,10 +46,10 @@ out$meta
 #> [1] TRUE
 #> 
 #> $statsStartTime
-#> [1] 1.450713e+12
+#> [1] 1.452788e+12
 #> 
 #> $statsDuration
-#> [1] 97
+#> [1] 325
 #> 
 #> $requestNumber
 #> [1] 999
@@ -66,34 +65,31 @@ out$meta
 ```r
 out$items[[1]]
 #> $identifier
-#> [1] "001"
+#> [1] "002"
 #> 
 #> $country
-#> [1] "PT"
+#> [1] "NO"
 #> 
 #> $name
-#> [1] "Calouste Gulbenkian Foundation / Fundação Calouste Gulbenkian"
+#> [1] "Norsk Lydinstitutt"
 #> 
 #> $acronym
-#> [1] "CGF"
+#> [1] "NL"
 #> 
 #> $altname
-#> [1] "Calouste Gulbenkian Foundation"
+#> [1] "Norwegian Institute of Recorded Sound"
 #> 
 #> $scope
-#> [1] "Thematic"
-#> 
-#> $domain
-#> [1] "Museum/Gallery"
+#> [1] "Other/None"
 #> 
 #> $geolevel
-#> [1] "Regional"
+#> [1] "National"
 #> 
 #> $role
 #> [1] "Data Aggregator"
 #> 
 #> $website
-#> [1] "www.gulbenkian.pt"
+#> [1] "www.recordedsound.no/"
 ```
 
 ## Search Europena metadata
@@ -114,25 +110,25 @@ sapply(out$items, "[[", "title")
 #> [1] "Leonardo da Vinci: Della natura, peso e moto delle acque: il Codice Leicester"
 #> 
 #> [[4]]
-#> [1] "Heilig Aanschijn"
-#> 
-#> [[5]]
 #> [1] "Model of boring machine from design of Leonardo da Vinci"
 #> 
-#> [[6]]
+#> [[5]]
 #> [1] "Wise and Fooling Virgins from BL Arundel 44, f. 57v"
 #> 
-#> [[7]]
+#> [[6]]
 #> [1] "Model of screw-cutting machine from design of Leonardo da Vi"
 #> 
-#> [[8]]
+#> [[7]]
 #> [1] "Temple of Wisdom from BL Arundel 44, f. 114v"
 #> 
-#> [[9]]
+#> [[8]]
 #> [1] "Trattato della pittura di Lionardo da Vinci nuovamente dato in luce, colla vita dell'istesso autore, scritta da Rafaelle Du Fresne. Si sono giunti i tre libri della Pittura, ed il trattato della Statua di Leon Battista Alberti, colla vita del medesimo"
 #> 
-#> [[10]]
+#> [[9]]
 #> [1] "Leonardo: Mona Lisa (XVI. sz.)"
+#> 
+#> [[10]]
+#> [1] "Head and neck of an elderly man, seen in left profile. Etchi"
 ```
 
 Range search, from _a_ to _b_

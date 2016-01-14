@@ -12,7 +12,6 @@ knitr::opts_chunk$set(
 
 [![Build Status](https://api.travis-ci.org/ropensci/reuropeana.png)](https://travis-ci.org/ropensci/reuropeana)
 [![codecov.io](https://codecov.io/github/ropensci/reuropeana/coverage.svg?branch=master)](https://codecov.io/github/ropensci/reuropeana?branch=master)
-[![rstudio mirror downloads](http://cranlogs.r-pkg.org/badges/reuropeana)](https://github.com/metacran/cranlogs.app)
 
 `reuropeana`: R client for Europeana
 

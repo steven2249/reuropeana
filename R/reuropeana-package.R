@@ -1,9 +1,9 @@
 #' R Client for Europeana.
 #'
-#' @import httr jsonlite
+#' @importFrom httr GET content warn_for_status
+#' @importFrom jsonlite fromJSON
 #' @name reuropeana-package
 #' @aliases reuropeana
-#' @description R Client for Europeana
 #' @docType package
 #' @author Scott Chamberlain
 NULL
