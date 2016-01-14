@@ -3,6 +3,5 @@
 export(eu_providers)
 export(eu_records)
 export(eu_search)
-export(eu_suggestions)
 import(httr)
 import(jsonlite)
