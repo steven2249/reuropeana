@@ -1,10 +1,10 @@
 Package: reuropeana
 Type: Package
-Title: Interface to Europeana APIs
-Description: Interact with Europeana web services from R, including search,
-    etc, etc.
-Version: 0.0.3.9000
-Date: 2015-12-21
+Title: Interface to Europeana 'APIs'
+Description: Interact with Europeana web services (<http://labs.europeana.eu/api>),
+    including search, etc, etc.
+Version: 0.0.4.9000
+Date: 2016-01-14
 Authors@R: person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com")
 License: MIT + file LICENSE
@@ -16,6 +16,5 @@ Imports:
     httr (>= 1.0.0),
     jsonlite
 Suggests:
-    roxygen2,
     knitr
 RoxygenNote: 5.0.1
