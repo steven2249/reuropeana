@@ -1,7 +1,7 @@
 #' Get Europeana records
 #'
 #' @export
-#' @param id (character) Record ids
+#' @param ids (character) Record ids
 #' @param profile (character) Profile parameter controls the format and richness
 #' of the response. One of full, similar, params.
 #' @param key (character) API key for Europeana

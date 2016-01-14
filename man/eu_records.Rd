@@ -7,14 +7,14 @@
 eu_records(ids, profile = NULL, key = getOption("eu_key"), ...)
 }
 \arguments{
+\item{ids}{(character) Record ids}
+
 \item{profile}{(character) Profile parameter controls the format and richness
 of the response. One of full, similar, params.}
 
 \item{key}{(character) API key for Europeana}
 
 \item{...}{Curl options passed on to \code{\link[httr]{GET}}}
-
-\item{id}{(character) Record ids}
 }
 \description{
 Get Europeana records
