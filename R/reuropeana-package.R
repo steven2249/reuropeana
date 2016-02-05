@@ -1,6 +1,6 @@
 #' R Client for Europeana.
 #'
-#' @importFrom httr GET content warn_for_status
+#' @importFrom httr GET content warn_for_status http_status
 #' @importFrom jsonlite fromJSON
 #' @name reuropeana-package
 #' @aliases reuropeana

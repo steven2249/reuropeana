@@ -2,7 +2,7 @@ check_response <- function(x) {
   if (!x$status_code == 200) {
     txt <- contutf8(x)
     if (is(txt, "character")) {
-      stop(http_status(tt)$message, call. = FALSE)
+      stop(http_status(x)$message, call. = FALSE)
     }
     stnames <- names(jsonlite::fromJSON(txt, FALSE))
     if (!is.null(stnames)) {
