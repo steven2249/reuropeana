@@ -11,11 +11,9 @@ License: MIT + file LICENSE
 URL: https://github.com/ropensci/reuropeana
 BugReports: https://github.com/ropensci/reuropeana/issues
 LazyData: yes
-VignetteBuilder: knitr
 Imports:
     httr (>= 1.2.0),
     jsonlite (>= 1.0)
 Suggests:
-    roxygen2 (>= 5.0.1),
-    knitr
+    roxygen2 (>= 5.0.1)
 RoxygenNote: 5.0.1
