@@ -42,3 +42,28 @@ is_error <- function(x) {
     x
   }
 }
+
+make_multiargs <- function(x){
+  value <- get(x, envir = parent.frame(n = 2))
+  if ( length(value) == 0 ) {
+    NULL
+  } else {
+    if ( any(sapply(value, is.na)) ) {
+      NULL
+    } else {
+      if ( !is.character(value) ) {
+        value <- as.character(value)
+      }
+      names(value) <- rep(x, length(value))
+      value
+    }
+  }
+}
+
+collect_args <- function(x){
+  outlist <- list()
+  for (i in seq_along(x)) {
+    outlist[[i]] <- make_multiargs(x[[i]])
+  }
+  as.list(unlist(euc(outlist)))
+}

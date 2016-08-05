@@ -4,8 +4,10 @@
 \alias{eu_search}
 \title{Search the Europeana database.}
 \usage{
-eu_search(query, profile = NULL, qf = NULL, limit = 10, start = 1,
-  sort = NULL, key = getOption("eu_key"), ...)
+eu_search(query, profile = NULL, qf = NULL, reusability = NULL,
+  media = NULL, thumbnail = NULL, landingpage = NULL,
+  colourpalette = NULL, facet = NULL, sort = NULL, limit = 10,
+  start = 1, cursor = NULL, key = getOption("eu_key"), ...)
 }
 \arguments{
 \item{query}{(character) Query string}
@@ -15,12 +17,32 @@ See Details.}
 
 \item{qf}{(character) Facet filtering query. This parameter can be defined more than once.}
 
+\item{reusability}{(character) Filter by copyright status. Possible values are 'open',
+'restricted' or 'permission', see http://labs.europeana.eu/api/search#reusability-parameter}
+
+\item{media}{(character) Filter by records where an URL to the full media file is
+present in the edm:isShownBy or edm:hasView metadata and is resolvable.}
+
+\item{thumbnail}{(character) Filter by records where a thumbnail image has been generated
+for any of the WebResource media resources (thumbnail available in the edmPreview field).}
+
+\item{landingpage}{(character) Filter by records where the link to the original object on
+the providers website (edm:isShownAt) is present and verified to be working.}
+
+\item{colourpalette}{(character) Filter by images where one of the colours of an image
+matches the provided colour code. You can provide this parameter multiple times, the
+search will then do an 'AND' search on all the provided colours. See colour palette.}
+
+\item{facet}{(character) Name of an individual facet. See individual facets.}
+
+\item{sort}{(character) Sort by a field, e.g., \code{timestamp_update+desc}}
+
 \item{limit}{(numeric) The number of records to return. Maximum is 100. Default: 10}
 
 \item{start}{(numeric) The item in the search results to start with. The first item is 1.
 Default: 1}
 
-\item{sort}{(character) Sort by a field, e.g., \code{timestamp_update+desc}}
+\item{cursor}{(character) IGNORED FOR NOW, will add support later}
 
 \item{key}{(character) API key for Europeana}
 
@@ -90,6 +112,22 @@ eu_search(query='Paris', qf='COUNTRY:france')
 eu_search(query='Paris', qf='RIGHTS:http://www.europeana.eu/rights/rr-f/')
 ## objects provided by the user community:
 eu_search(query='Paris', qf='UGC:true')
+
+# reusability
+eu_search(query = 'Paris', reusability = 'open')
+
+# find all records that are of Paris and have large images
+eu_search(query = 'Paris', qf = 'IMAGE_SIZE:large')
+
+# query Paris, thumbnail image, mime type 'image/jpeg' & aspect ratio of 'landscape'
+xx <- eu_search(query = 'Paris', thumbnail = TRUE,
+   qf = list('MIME_TYPE:image\%2Fjpeg', 'IMAGE_ASPECTRATIO:landscape'), config=verbose())
+
+# subject is opera & results are sound files with a long duration
+eu_search(query = 'what:opera', qf = 'SOUND_DURATION:long', config=verbose())
+
+# records where one of the images has a (dominant) red colour
+eu_search(query = '*:*', colourpalette = '\%23FF0000', config=verbose())
 }
 }
 

@@ -4,13 +4,17 @@
 \alias{eu_records}
 \title{Get Europeana records}
 \usage{
-eu_records(ids, profile = NULL, key = getOption("eu_key"), ...)
+eu_records(ids, profile = NULL, hierarchy = NULL,
+  key = getOption("eu_key"), ...)
 }
 \arguments{
 \item{ids}{(character) Record ids}
 
 \item{profile}{(character) Profile parameter controls the format and richness
 of the response. One of full, similar, params.}
+
+\item{hierarchy}{(character) One of 'self', 'parent', 'children', 'preceding-siblings',
+'following-siblings', or 'ancestor-self-siblings'}
 
 \item{key}{(character) API key for Europeana}
 
@@ -34,6 +38,13 @@ eu_records(id, profile = "params")
 
 # should work even with ids that don't exist
 eu_records(c('2020903/KMSB_37_106_7', 'notanid'))
+
+# hierarchy
+eu_records(ids = '9200300/BibliographicResource_3000116310788', hierarchy = "parent")
+ids <- c('9200300/BibliographicResource_3000116310788',
+   '9200300/BibliographicResource_3000116311348')
+eu_records(ids, hierarchy = "parent")
+eu_records(ids, hierarchy = "children")
 }
 }
 

@@ -32,25 +32,27 @@ Search Europeana data providers.
 }
 \examples{
 \dontrun{
-eu_providers(limit=1)
-eu_providers(limit=1, start=3)
-out <- eu_providers(limit=3)
+eu_providers(limit = 1)
+eu_providers(limit = 1, start = 3)
+out <- eu_providers(limit = 3)
 out$meta
 out$items
-eu_providers(start=3)
-eu_providers(providerid=20239)
-eu_providers(providerid=20239, datasets=TRUE)
-eu_providers(datasetid=2023901)
-identical(eu_providers(providerid=20239, datasets=TRUE)$items,
-   eu_providers(datasetid=2023901)$items)
+eu_providers(start = 3)
+eu_providers(providerid = '004')
+eu_providers(providerid = '004', datasets = TRUE)
+eu_providers(providerid='045')
+eu_providers(datasetid = 2023901)
+identical(eu_providers(providerid = 20239, datasets = TRUE)$items,
+   eu_providers(datasetid = 2023901)$items)
 
 # Country codes
-out <- eu_providers(country_code='UK')
-sapply(out$items, "[[", "country") # check that all country fields are UK
+out <- eu_providers(country_code = 'UK')
+### check that all country fields are UK
+vapply(out$items, "[[", "", "country")
 
 # Curl debugging
 library("httr")
-eu_providers(limit=1, config=verbose())
+eu_providers(limit = 1, config = verbose())
 }
 }
 
