@@ -1,0 +1,1 @@
+context("Testing exported functions")
