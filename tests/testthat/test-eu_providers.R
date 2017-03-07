@@ -13,5 +13,4 @@ test_that("eu_providers", {
   expect.is(aa$meta[[5]], "integer")
   expect.is(aa$meta[[6]], "integer")
   expect.is(aa$meta[[7]], "integer")
-               
-               })
+})
