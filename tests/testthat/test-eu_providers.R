@@ -1,12 +1,12 @@
 context("eu_providers")
 
 test_that("eu_providers", {
-  tt <- eu_providers(key = "sMgTRPQ4Z")
+  tt <- eu_providers()
   
   expect_is(tt, "list")
   expect_is(tt$meta, "list")
   expect_is(tt$meta[[1]], "character")
-  expect_match(tt$meta[[1]], "sMgTRPQ4Z")
+  expect_is(tt$meta[[1]], "character")
   expect_is(tt$meta[[2]], "logical")
   expect_is(tt$meta[[3]], "numeric")
   expect_is(tt$meta[[4]], "integer")
