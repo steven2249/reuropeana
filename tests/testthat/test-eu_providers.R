@@ -6,7 +6,6 @@ test_that("eu_providers", {
   expect_is(tt, "list")
   expect_is(tt$meta, "list")
   expect_is(tt$meta[[1]], "character")
-  expect_is(tt$meta[[1]], "character")
   expect_is(tt$meta[[2]], "logical")
   expect_is(tt$meta[[3]], "numeric")
   expect_is(tt$meta[[4]], "integer")
